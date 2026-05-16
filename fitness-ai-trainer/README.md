@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# 🏋️ Fitness AI App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack AI-powered fitness application that generates **personalised workout plans** using a fine-tuned GPT-2 language model. Built with React on the frontend, Flask on the backend, and Firebase for authentication and data storage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Features
 
-### `npm start`
+- 🤖 **AI Workout Generation** — Fine-tuned GPT-2 model generates personalised plans based on user input (runs locally via Flask)
+- 🔐 **User Authentication** — Secure login and registration via Firebase Auth
+- 📊 **Progress Tracking** — Completed workouts and challenges stored in Firebase Firestore
+- 🏆 **Challenges System** — Users can take on fitness challenges tracked in real time
+- 📈 **Data Visualisation** — Workout history and stats rendered with React Google Charts
+- 🔔 **Toast Notifications** — Smooth UX feedback with React Toastify
+- 📱 **Responsive Design** — Flexbox/Grid layout with custom CSS animations
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+### Frontend
+| Technology | Purpose |
+|---|---|
+| React 19 | UI component framework |
+| React Router DOM v7 | Client-side routing |
+| React Hook Form | Form state management |
+| React Google Charts | Data visualisation |
+| React Toastify | Toast notifications |
+| React Icons | Icon components |
+| Axios | HTTP requests to Flask API |
+| CSS3 | Custom properties, animations, flexbox/grid |
+| Google Fonts (Inter) | Typography |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
+| Technology | Purpose |
+|---|---|
+| Python 3 / Flask | REST API server (localhost:5000) |
+| Flask-CORS | Cross-origin request handling |
+| HuggingFace Transformers | GPT-2 model loading & inference |
+| PyTorch | ML model engine |
+| Pandas | Workout data handling (CSV) |
 
-### `npm run build`
+### Services & Data
+| Service | Purpose |
+|---|---|
+| Firebase Authentication | User login, registration, sessions |
+| Firebase Firestore | Stores profiles, plans, workouts, challenges |
+| GPT-2 (fine-tuned) | AI workout plan generation |
+| workout_data.csv | Training/reference data for the ML model |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ML Details
+- **Model:** GPT-2 fine-tuned on workout data
+- **Generation strategy:** Beam search + nucleus sampling (5 beams, temp 0.7, top-p 0.9)
+- **Tokenizer:** GPT2Tokenizer via HuggingFace
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+Fitness-AI-app/
+├── public/
+│   └── index.html          # App shell
+├── src/
+│   ├── components/         # Reusable React components
+│   ├── pages/              # Route-level pages
+│   ├── firebase.js         # Firebase config
+│   └── App.js              # Root component + routing
+├── backend/
+│   ├── app.py              # Flask server + API routes
+│   ├── workout_data.csv    # ML training/reference data
+│   └── model/              # Fine-tuned GPT-2 model files
+├── .gitignore
+└── README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
+- Node.js (v18+)
+- Python 3.8+
+- A Firebase project (free tier works)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1. Clone the repository
+```bash
+git clone https://github.com/isamkhan1809/Fitness-AI-app.git
+cd Fitness-AI-app
+```
 
-## Learn More
+### 2. Install frontend dependencies
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Set up Firebase
+Create a `.env` file in the root with your Firebase config:
+```
+REACT_APP_FIREBASE_API_KEY=your_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Install backend dependencies
+```bash
+cd backend
+pip install flask flask-cors transformers torch pandas
+```
 
-### Code Splitting
+### 5. Run the Flask backend
+```bash
+python app.py
+# Runs on http://localhost:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 6. Run the React frontend
+```bash
+# From the root directory
+npm start
+# Runs on http://localhost:3000
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧠 How the AI Works
 
-### Making a Progressive Web App
+1. The user fills in their fitness goals, experience level, and available equipment
+2. The React frontend sends a POST request to the Flask API
+3. Flask feeds the input into a **fine-tuned GPT-2 model** using HuggingFace Transformers
+4. The model generates a structured workout plan using beam search + nucleus sampling
+5. The plan is returned to the frontend and saved to Firestore
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🔮 Future Plans
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [ ] Swap GPT-2 for OpenAI API for improved generation quality
+- [ ] Add nutrition/meal plan generation
+- [ ] Mobile app version (React Native)
+- [ ] Social features — share workouts with friends
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👤 Author
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Isam Khan**  
+[GitHub](https://github.com/isamkhan1809)
