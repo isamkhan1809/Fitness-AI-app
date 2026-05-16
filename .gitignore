@@ -4,3 +4,5 @@ node_modules/
 .env.production
 build/
 .DS_Store
+fitness-ai-trainer/ml-model/
+fitness-ai-trainer/node_modules/
