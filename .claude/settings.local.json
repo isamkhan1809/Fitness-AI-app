@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Claude_in_Chrome__tabs_context_mcp"
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(xargs kill -9)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git -C /Users/isamkhan/Desktop/Fitness-AI-app log --oneline)",
+      "Bash(gh api *)",
+      "Bash(git add *)",
+      "Bash(git pull *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git stash *)"
     ]
   }
 }
