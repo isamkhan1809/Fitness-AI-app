@@ -27,9 +27,9 @@
 ```
   ╔══════════════════════════════════════════════════════════════╗
   ║                                                              ║
-  ║   Most fitness apps give everyone the same plan.            ║
-  ║   Fitness AI reads your goals and builds yours from         ║
-  ║   scratch — powered by a locally-running GPT-2 model.       ║
+  ║   Most fitness apps give everyone the same plan.             ║
+  ║   Fitness AI reads your goals and builds yours from          ║
+  ║   scratch — powered by a locally-running GPT-2 model.        ║
   ║                                                              ║
   ║       Your data. Your goals. Your plan.                      ║
   ║                                                              ║
@@ -89,28 +89,28 @@ Day 1 — Chest & Triceps
 │                      FITNESS AI ENGINE                           │
 │                                                                  │
 │  ┌──────────────┐     ┌───────────────┐     ┌────────────────┐   │
-│  │  User Profile │────▶│  React Form   │────▶│  Flask /gen-  │   │
-│  │  (Firestore) │     │  goal+inten-  │     │  erate API    │   │
-│  │              │     │  sity+freq    │     │               │   │
+│  │ User Profile │────▶│  React Form   │────▶│  Flask /gen-   │   │
+│  │ (Firestore)  │     │  goal+inten-  │     │  erate API     │   │
+│  │              │     │  sity+freq    │     │                │   │
 │  └──────────────┘     └───────────────┘     └───────┬────────┘   │
 │                                                     │            │
-│                                       ┌─────────────▼──────┐    │
-│                                       │  Fine-Tuned GPT-2  │    │
-│                                       │  HuggingFace +     │    │
-│                                       │  PyTorch (local)   │    │
-│                                       └─────────────┬──────┘    │
+│                                       ┌─────────────▼──────┐     │
+│                                       │  Fine-Tuned GPT-2  │     │
+│                                       │  HuggingFace +     │     │
+│                                       │  PyTorch (local)   │     │
+│                                       └─────────────┬──────┘     │
 │                                                     │            │
-│                                       ┌─────────────▼──────┐    │
-│                                       │  Validation Layer  │    │
-│                                       │  Keyword check +   │    │
-│                                       │  Fallback plans    │    │
-│                                       └─────────────┬──────┘    │
+│                                       ┌─────────────▼──────┐     │
+│                                       │  Validation Layer  │     │
+│                                       │  Keyword check +   │     │
+│                                       │  Fallback plans    │     │
+│                                       └─────────────┬──────┘     │ 
 │                                                     │            │
-│                                       ┌─────────────▼──────┐    │
-│                                       │  Firestore Storage │    │
-│                                       │  Plans · Workouts  │    │
-│                                       │  Challenges · Stats│    │
-│                                       └────────────────────┘    │
+│                                       ┌─────────────▼──────┐     │
+│                                       │  Firestore Storage │     │
+│                                       │  Plans · Workouts  │     │
+│                                       │  Challenges · Stats│     │
+│                                       └────────────────────┘     │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
